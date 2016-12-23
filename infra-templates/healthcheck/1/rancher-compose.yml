@@ -1,6 +1,6 @@
 .catalog:
     name: "Healthcheck Service"
-    version: "v0.1.0"
+    version: "v0.2.0"
     description: "Rancher healthcheck service"
 healthcheck:
   health_check:
