@@ -4,3 +4,8 @@ services:
         image: rancher/none
         labels:
             io.rancher.service.selector.container: experimental-windows-rancher
+
+    transparent:
+        image: rancher/none
+        labels:
+            io.rancher.service.selector.container: experimental-windows-rancher
