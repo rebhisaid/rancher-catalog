@@ -24,6 +24,7 @@
     label: NFS Version
     description: The NFS version to use
     type: enum
+    required: true
     default: nfsvers=4
     options:
     - nfsvers=4
