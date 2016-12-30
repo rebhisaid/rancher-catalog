@@ -17,8 +17,15 @@
     required: true
   - variable: "MOUNT_OPTS"
     label: "Mount Options"
-    description: "Comma delimited list of mount options, for example: 'nfsvers=4,proto=udp'"
+    description: "Comma delimited list of mount options, for example: 'proto=udp'. Do not specify `nfsvers` option, it will be ignored."
     type: "string"
+  - variable: "NFS_VERS"
+    label: NFS Version
+    description: The NFS version to use
+    type: enum
+    default: nfsvers=4
+    options:
+    - nfsvers=4
   - variable: RANCHER_DEBUG
     label: Debug Mode
     type: enum
