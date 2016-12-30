@@ -11,9 +11,9 @@ services:
     environment:
       NFS_SERVER: '${NFS_SERVER}'
       MOUNT_DIR: '${MOUNT_DIR}'
-      MOUNT_OPTS: '${MOUNT_OPTS}'
+      MOUNT_OPTS: '${MOUNT_OPTS},${NFS_VERS}'
     volumes:
-    - /run:/run
+    - /var/run:/var/run
     - /dev:/host/dev
     - /var/lib/rancher/volumes:/var/lib/rancher/volumes:shared
     logging:

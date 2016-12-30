@@ -12,7 +12,7 @@ services:
       AWS_SECRET_ACCESS_KEY: '${AWS_SECRET_ACCESS_KEY}'
       AWS_ACCESS_KEY_ID: '${AWS_ACCESS_KEY_ID}'
     volumes:
-    - /run:/run
+    - /var/run:/var/run
     - /dev:/host/dev
     - /var/lib/rancher/volumes:/var/lib/rancher/volumes:shared
     logging:
