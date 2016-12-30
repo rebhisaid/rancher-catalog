@@ -8,7 +8,13 @@
       type: "string"
       default: "docker0"
       required: true
-      
+    - variable: "SUBNET"
+      label: "Subnet"
+      description: "The subnet to use for the managed network."
+      type: "string"
+      default: '10.42.0.0/16'
+      required: true
+
 vxlan:
   network_driver:
     name: Rancher VXLAN
@@ -16,7 +22,7 @@ vxlan:
       name: vxlan
       host_ports: true
       subnets:
-      - network_address: '10.42.0.0/16'
+      - network_address: $SUBNET
       dns:
       - 169.254.169.250
       dns_search:
@@ -26,9 +32,9 @@ vxlan:
         name: rancher-cni-network
         type: rancher-bridge
         bridge: $DOCKER_BRIDGE
-        bridgeSubnet: '10.42.0.0/16'
+        bridgeSubnet: $SUBNET
         isDefaultGateway: true
-        hairpinMode": true
+        hairpinMode: true
         hostNat: true
         hairpinMode: true
         linkMTUOverhead: 98
