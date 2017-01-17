@@ -13,7 +13,7 @@ kubelet:
         - --register-node=true
         - --cloud-provider=${CLOUD_PROVIDER}
         - --healthz-bind-address=0.0.0.0
-        - --cluster-dns=10.43.0.10
+        - --cluster-dns=10.251.0.10
         - --cluster-domain=cluster.local
         - --network-plugin=cni
         - --network-plugin-dir=/etc/cni/managed.d
@@ -41,8 +41,10 @@ proxy:
     command:
         - kube-proxy
         - --master=http://kubernetes.kubernetes.rancher.internal
-        - --v=2
+        - --v=4
         - --healthz-bind-address=0.0.0.0
+        - --proxy-mode=iptables
+        - --cluster-cidr=10.251.0.0/16
     image: rancher/k8s:v1.5.1-rancher1-7
     privileged: true
     net: host
@@ -83,7 +85,7 @@ kubernetes:
         io.rancher.sidekicks: kube-hostname-updater
     command: 
         - kube-apiserver
-        - --service-cluster-ip-range=10.43.0.0/16
+        - --service-cluster-ip-range=10.251.0.0/16
         - --etcd-servers=http://etcd.kubernetes.rancher.internal:2379
         - --insecure-bind-address=0.0.0.0
         - --insecure-port=80
